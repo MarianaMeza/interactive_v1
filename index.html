@@ -2,116 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Basic Bar Chart</title>
+    <title>Homicides in Mexico 2017</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    /* custom css styles will go here */
-
-    </style>
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-    <p>In 2017, there where 31,902 violent homicides in Mexico</p>
-    <p>Each square represents 10 homicides. Scroll down to learn more</p>
+    <h1>Behind the deadliest year in Mexico </h1>
+    <p>Mexico has recorded its highest homicide rate in years, with a total of 31,902 murders in 2017, more than in 2011 at the peak of Mexico’s drug cartel-stoked violence. The death toll is Mexico’s highest since the government began keeping records in 1997, and shot past 2011’s tally of 27,213 homicides. According to the Interior Department, Mexico’s homicide rate this past year equated with 20.5 murders per 100,000 residents; in 2011, that figure was 19.4. Compared to the statistics from 2016, every state in Mexico (with the exception of Sonora, which borders Arizona, and Morelos, located south of Mexico City) saw an increase in the number of executions related to organized crime. The states with the highest number of killings were Guerrero, Guanajuato, Veracruz, Michoacán, Chihuahua and Baja California. </p>
+    <p>Each square represents 10 homicides. Click on the buttons to learn more</p>
+    <div class="buttonholder"></div>
+    <h2></h2>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="index.js"></script>
 
-// For some reason does not work in the index.js
-  var margin = {top:10,right:100,bottom:30,left:100},
-      width  = 800 - margin.left - margin.right,
-      height = 700 - margin.top - margin.bottom,
-      //boxSize = 1 // full dataset
-      boxSize = 10, //size of each box sample dataset
-    //  boxGap = 0.1 // full dataset
-      boxGap = 3, //space between each box
-      howManyAcross = Math.floor(width / boxSize);
-
-  // trying to load dataset
-
-
-
-    var svg = d3.select("body")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom));
-
-  //  need to transition between these variables
-  //  var categoryHeading = "age_r"
-  //  var categoryHeading = "cause_r"
-  //  var categoryHeading = "educ_r"
-  //  var categoryHeading = "sex"
-    var categoryHeading = "location_r"
-    var g = svg.append("g")
-            .attr("transform","translate(" + margin.left + "," + margin.top + ")");
-
-        //rainbow colors
-    var colors = d3.scaleSequential(d3.interpolateRdBu);
-    //sample
-  d3.csv('homicide_sample.csv').then(function(data, i){
-    // full
-  // d3.csv('homicide_full.csv').then(function(data, i){
-
-         //sort data alphabetically
-         data.sort(function(a,b){ return d3.ascending(a[categoryHeading], b[categoryHeading])});
-
-         //get all of the unique values in the column for the scale
-         var keys = d3.map(data, function(d){ return d[categoryHeading];}).keys();
-
-         //set domain on category
-         colors.domain([0, keys.length]);
-
-         //convert to a categorical scale
-         var categoryScale = d3.scaleOrdinal(keys.map(function(d, i){ return colors(i);}));
-         categoryScale.domain(keys);//set the scale domain
-
-
-         //make the main chart
-
-         g.selectAll(".square")
-             .data(data)
-             .enter()
-             .append("rect")
-             .attr("class", "square")
-             .attr("x", function(d,i){ return boxSize * (i % howManyAcross); })
-             .attr("y", function(d,i){ return Math.floor(i/howManyAcross) * boxSize; })
-             .attr("width", boxSize - 3)
-             .attr("height", boxSize - 3)
-             .attr("fill", "black")
-             .transition()
-             .duration(5000)
-             .attr("fill", function(d){ return categoryScale(d[categoryHeading]);})
-             .transition()
-             .duration(2000)
-             .attr("fill", "grey")
-             //.exit();
-
-
-         //legend
-         var legend = svg.selectAll(".legend")
-             .data(keys)
-             .enter();
-
-
-         legend.append("rect")
-             .attr("x", margin.left + width + boxGap )
-             .attr("y", function(d,i){ return (i * boxSize) + margin.top; })
-             .attr("width", boxSize - 3)
-             .attr("height", boxSize - 3)
-             .attr("fill", function(d){ return categoryScale(d); })
-
-         legend.append("text")
-             .attr("x", margin.left + width + boxSize + (boxGap*2))
-             .attr("y", function(d,i){ return (i * boxSize) + margin.top; })
-             .append("tspan")
-             .attr("dx", 0)
-             .attr("dy", boxSize/2)
-             .style("alignment-baseline", "middle")
-             .style("font-size", 10)
-             .style("font-family", "Helvetica, Arial, sans-serif")
-             .text(function(d){ return d;})
-     });
-
-    </script>
 </body>
 </html>
