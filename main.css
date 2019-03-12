@@ -5,7 +5,7 @@ g {
 h1 {
         font-family: Cambria, sans-serif;
         font-size: 35px;
-        color: #b33000;
+        color: #8b0000;
         margin-left: 160px;
         margin-right: 280px;
       }
@@ -37,8 +37,8 @@ p {
       }
 .legendSequential {
         font-family: Garamond, sans-serif;
-        font-size: 14px;
-        color: #b33000red;
+        font-size: 16px;
+        fill: #b33000;
 
 }
 

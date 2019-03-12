@@ -96,14 +96,14 @@
            //.remove();
 
 //NEED to figure this annotations
-          var myData = ['A', 'B', 'C', 'D', 'E']
-           const parag =   d3.select(".paragholder").selectAll("p")
-                  .data(data)
-                  parag.enter()
-                  .append("p")
-                  .merge(parag)
-                  .text(function(d) {return d.text;});
-                 parag.exit().remove();
+          // var myData = ['A', 'B', 'C', 'D', 'E']
+          //  const parag =   d3.select(".paragholder").selectAll("p")
+          //         .data(keys)
+          //         parag.enter()
+          //         .append("p")
+          //         .merge(parag)
+          //         .text(function(d) {return d;});
+          //        parag.exit().remove();
 
         //  console.log(keys)
            var sequentialScale = d3.scaleOrdinal()
