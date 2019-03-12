@@ -1,7 +1,7 @@
 
 // For some reason does not work in the index.js
-  const margin = {top:10,right:60,bottom:30,left:100};
-  const width  = 850 - margin.left - margin.right;
+  const margin = {top:10,right:200,bottom:30,left:100};
+  const width  = 1000 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
       //boxSize = 1 // full dataset
   const boxSize = 10; //size of each box sample dataset
@@ -20,7 +20,7 @@
         .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         //Red and blue palette
-   var colors = d3.scaleSequential(d3.interpolateRdGy);
+   var colors = d3.scaleSequential(d3.interpolateYlOrRd);
    // console.log(colors.domain)
     //  var colors = d3.scaleOrdinal().range(["Red", "Maroon", "grey", "yellow", "blue"]);
 
@@ -95,13 +95,15 @@
            //.exit()
            //.remove();
 
-// NEED to figure this annotations
-           // const parag =   d3.select("body").selectAll("p")
-           //        .data(keys)
-           //        parag.enter()
-           //        .append("p")
-           //       .text([keys])
-           //       .attr("transform", "translate(20,20)");
+//NEED to figure this annotations
+          var myData = ['A', 'B', 'C', 'D', 'E']
+           const parag =   d3.select(".paragholder").selectAll("p")
+                  .data(data)
+                  parag.enter()
+                  .append("p")
+                  .merge(parag)
+                  .text(function(d) {return d.text;});
+                 parag.exit().remove();
 
         //  console.log(keys)
            var sequentialScale = d3.scaleOrdinal()
@@ -110,7 +112,7 @@
 
            svg.append("g")
              .attr("class", "legendSequential")
-             .attr("transform", "translate(700,0)");
+             .attr("transform", "translate(700,1)");
 
            var legendSequential = d3.legendColor()
                .shape("boxGap")
