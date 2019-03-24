@@ -1,60 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homicides in Mexico 2017</title>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
-  <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <meta charset="utf-8">
+    <title>Homicides in Mexico 2017</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<div class="container">
-  <div id='graphic'>
-    <div id='sections'>
-      <section class="step">
-        <div class="title">SCROLL TO START</div>
-        <br/><br/>
-      </section>
-      <section class="step">
-        <div class="title"> 2017 has been the deadliest year in Mexico's history with 31,902 homicides</div>
-        Each dot represents 10 homicides <br><br>
-        <div class="note">* Source: Mortality Database with death certificates.</div>
-      </section>
-      <section class="step">
-        <div class="title">Almost 9 out of 10 victims are male</div>
+    <h1>Behind the deadliest year in Mexico </h1>
+    <h2>In 2017, Mexico recorded its highest homicide rate in years, with a total of 31,902 murders, more than in 2011 at the peak of Mexico’s drug cartel-stoked violence. The death toll is Mexico’s highest since the government began keeping records in 1997, and shot past 2011’s tally of 27,213 homicides. According to the Interior Department, Mexico’s homicide rate this past year equated with 20.5 murders per 100,000 residents; in 2011, that figure was 19.4. The U.S. homicide rate is 5.3 per 100,000. This interactive graph shows the magnitude of the violence crisis in Mexico and relevant patterns behind the thousands of deaths.  </h2>
+    <h3>Each square represents 10 homicides. Click on the buttons to learn more</h3>
+    <div class="buttonholder"></div>
+    <div class="paragholder"></div>
 
-      </section>
-      <section class="step">
-        <div class="title">74% of the victims are 44 years or younger</div>
+    <h2></h2>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="waffle.js"></script>
 
-      </section>
-      <section class="step">
-        <div class="title">Majority of homicides happen in the street</div>
-          </section>
-      <section class="step">
-        <div class="title">Guns are the most used weapon</div>
-
-      </section>
-      <section class="step">
-        <div class="title">Age and Gender</div>
-        Crosstab age gender
-      </section>
-      <section class="step">
-        <div class="title">Gender Weapon</div>
-        crosstab age and weapon
-        <div class="note">* Code inspired by //github.com/BMPMS/Titanic_scroll </div>
-      </section>
-
-    </div>
-    <div id='vis'>
-    </div>
-    <div id="extra-space">
-    </div>
-  </div>
-</div>
-
-
-<script src="js/scroller.js"></script>
-<script src="js/sections.js"></script>
 </body>
+
 </html>
