@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
+
 <head>
-    <meta charset="utf-8">
-    <title>Homicides in Mexico 2017</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="main.css">
+   <meta charset='utf-8'>
+   <title>Heatmap</title>
+   <script src='https://d3js.org/d3.v5.min.js' charset='utf-8'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js'></script> <!-- for tooltip -->
+   <link rel='stylesheet' type='text/css' href='./main.css' media='screen'/>
 </head>
+
 <body>
-    <h1>Behind the deadliest year in Mexico </h1>
-    <h2>In 2017, Mexico recorded its highest homicide rate in years, with a total of 31,902 murders, more than in 2011 at the peak of Mexico’s drug cartel-stoked violence. The death toll is Mexico’s highest since the government began keeping records in 1997, and shot past 2011’s tally of 27,213 homicides. According to the Interior Department, Mexico’s homicide rate this past year equated with 20.5 murders per 100,000 residents; in 2011, that figure was 19.4. The U.S. homicide rate is 5.3 per 100,000. This interactive graph shows the magnitude of the violence crisis in Mexico and relevant patterns behind the thousands of deaths.  </h2>
+<h1>Behind the deadliest year in Mexico </h1>
+<p> In 2017, Mexico recorded its highest homicide rate in years, with a total of 31,902 murders, more than in 2011 at the peak of Mexico’s drug cartel-stoked violence. The death toll is Mexico’s highest since the government began keeping records in 1997, and shot past 2011’s tally of 27,213 homicides.</p>
+
+<p> There are two ways two disect the number of homicides. The first interactive graph show the number of homicides by month and day in 2017 </p>
+
+<h2> Hover over the squares to learn more</h2>
+	   
+<div id='heatmap'></div>
+		<br />
+		
+<p> The interactive graph below shows the number of homicides by different variables like age, sex, education and location   </p> 
+		
+	
     <h3>Each square represents 10 homicides. Click on the buttons to learn more</h3>
     <div class="buttonholder"></div>
     <div class="paragholder"></div>
-
-    <h2></h2>
+    
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="waffle.js"></script>
+   <script src='heatmap.js'></script>
 
+   
 </body>
 
 </html>
