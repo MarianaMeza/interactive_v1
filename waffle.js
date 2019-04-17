@@ -63,8 +63,6 @@
       data.sort(function(a,b){ return d3.ascending(a[categoryHeading], b[categoryHeading])});
        //get all of the unique values in the column for the scale
        var keys = d3.map(data, function(d){ return d[categoryHeading];}).keys();
-  //     var lines = d3.map(data, function(d){ return d.random_number;});
-       //set domain on category
        colors.domain([0, keys.length]);
 
        //convert to a categorical scale
@@ -125,6 +123,7 @@
                .scale(sequentialScale)
                .title([categoryHeading])
                .titleWidth(100)
+              
 
            svg2.select(".legendSequential")
              .call(legendSequential);

@@ -2,6 +2,16 @@ html,
 g {
   background-color: #d6dfe6	;
 }
+.legendSequential {
+  font-family: Garamond, sans-serif;
+  fill: black;
+  font-size: 14px;
+  background: black;
+}
+
+.legendSequential text.label {
+   fill: '#fff'
+}
 h1 {
         font-family: Cambria, sans-serif;
         font-size: 35px;
@@ -26,11 +36,8 @@ p {
         margin-right: 180px;
         margin-top: 40px;
       }
-.legendSequential {
-  font-family: Garamond, sans-serif;
-  fill: #808080;
-  font-size: 14px;
-}
+
+
 
 button {
         margin-bottom: 30px;
@@ -63,6 +70,11 @@ button {
 	stroke-width: 1px;
 }
 
-
-
-
+.d3-tip {
+	line-height: 1;
+	font: 10px sans-serif;
+	padding: 12px;
+	background: rgba(0, 0, 0, 0.8);
+	color: #696969;
+	border-radius: 2px;
+}

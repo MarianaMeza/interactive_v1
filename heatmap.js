@@ -1,5 +1,3 @@
-// heatmap code inspired by https://www.d3-graph-gallery.com/graph/heatmap_tooltip.html
-
 var itemSize = 20;
 var Border = 1;
 var cellSize = itemSize - 1 + Border;
@@ -20,15 +18,25 @@ var svg = d3.select('#heatmap')
 	.append('g')
 	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
+var tip = d3.tip()
+	.attr('class', 'd3-tip')
+	.offset([-20, 0])
+	.html(function(d) {
+		return '<div><span>Month:</span> <span style=\'color:white\'>' + d.month + '</span></div>' +
+			'<div><span>Day:</span> <span style=\'color:white\'>' + d.day + '</span></div>' +
+			'<div><span>Total Homicides:</span> <span style=\'color:white\'>' + d.valuePol + '</span></div>';
+	});
+svg.call(tip);
+
 
 var monthName;
 var dayName;
 var numday;
 var nummonth;
 
-// Define color by quartiles 
-var domain1 = [23, 44, 67, 80, 120]; //quartiles
-var range1 = ['white', '#F5F5F5', '#F08080', '#FFA07A', '#B22222'];
+// Define color by quartiles
+var domain1 = [23, 44, 67, 100]; //quartiles
+var range1 = ['white', '#F5F5F5', '#F08080',  '#B22222'];
 var colorScaleLin = d3.scaleLinear()
 	.domain(domain1)
 	.range(range1);
@@ -63,7 +71,7 @@ function makeHeatmap(data) {
 	var month_names = data.map(function(d) {
 		return d.month;
 	});
-	
+
 	monthName = d3.set(month_names).values();
 	nummonth = monthName.length;
 
@@ -71,7 +79,7 @@ function makeHeatmap(data) {
 	var day = data.map(function(d) {
 		return d.day;
 	});
-	
+
 	dayName = d3.set(day).values();
 	numday = dayName.length;
 
@@ -129,7 +137,7 @@ function makeHeatmap(data) {
 		.attr('dx', '.8em')
 		.attr('dy', '.5em')
 		.on('click', function(d, i) {
-			
+
 		});
 
 	//make the squares (changed name so not to confuse with waffle)
@@ -143,8 +151,8 @@ function makeHeatmap(data) {
 		})
 		.attr('data-r', function(d) {
 			return monthName.indexOf(d.month);
-		}) //start with 
-		.attr('data-c', function(d, i) { 
+		}) //start with
+		.attr('data-c', function(d, i) {
 			if(monthName.includes(d.month) & d.day == '1') var idc = 0;
 			else if(monthName.includes(d.month) && d.day == '2') var idc = 1;
 			else if(monthName.includes(d.month) && d.day == '3') var idc = 2;
@@ -203,7 +211,13 @@ function makeHeatmap(data) {
 			}
 			return col;
 		})
-	
+		.on('mouseover', function(d, i) { // on mouseover display r, c and value
+			var idr = d3.select(this).attr('data-r');
+			var idc = d3.select(this).attr('data-c');
+			var value = d3.select(this).attr('data-value');
+			d3.select(this).style('stroke', 'orange');
+			tip.show(d, i);
+		});
 
-	
-			} 
+
+			}

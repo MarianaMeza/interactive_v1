@@ -6,33 +6,32 @@
    <title>Heatmap</title>
    <script src='https://d3js.org/d3.v5.min.js' charset='utf-8'></script>
    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js'></script> <!-- for tooltip -->
-   <link rel='stylesheet' type='text/css' href='./main.css' media='screen'/>
+   <link rel='stylesheet' type='text/css' href='./style.css' media='screen'/>
 </head>
 
 <body>
 <h1>Behind the deadliest year in Mexico </h1>
 <p> In 2017, Mexico recorded its highest homicide rate in years, with a total of 31,902 murders, more than in 2011 at the peak of Mexico’s drug cartel-stoked violence. The death toll is Mexico’s highest since the government began keeping records in 1997, and shot past 2011’s tally of 27,213 homicides.</p>
-
 <p> There are two ways two disect the number of homicides. The first interactive graph show the number of homicides by month and day in 2017 </p>
-
 <h2> Hover over the squares to learn more</h2>
-	   
+<p><font color="#F5F5F5">LOW HOMICIDE TOTAL</font> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <font color="#B22222">HIGH HOMICIDE TOTAL</font> </p>
+
 <div id='heatmap'></div>
-		<br />
-		
-<p> The interactive graph below shows the number of homicides by different variables like age, sex, education and location   </p> 
-		
-	
+
+
+<p> The interactive graph below shows the number of homicides by different variables like age, sex, education and location   </p>
+
+
     <h3>Each square represents 10 homicides. Click on the buttons to learn more</h3>
     <div class="buttonholder"></div>
     <div class="paragholder"></div>
-    
+
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="waffle.js"></script>
    <script src='heatmap.js'></script>
 
-   
+
 </body>
 
 </html>
